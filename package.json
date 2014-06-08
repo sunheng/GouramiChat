@@ -1,0 +1,12 @@
+{
+  "name": "GouramiChat",
+  "version": "0.0.1",
+  "description": "Personal Group Chat Rooms",
+  "main": "app.js",
+  "author": "Sunheng Taing",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.4.1",
+    "socket.io": "~0.9.16"
+  }
+}

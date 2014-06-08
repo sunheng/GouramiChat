@@ -1,0 +1,13 @@
+.chatWrapper{
+	position : relative;
+	height : 400px;
+
+}
+#messageForm {
+	position : relative; bottom:4px;
+}
+#chatWindow {
+	height : 100%;
+	overflow : scroll;
+	overflow-x : hidden;
+}
