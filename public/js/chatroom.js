@@ -19,13 +19,14 @@ $(document).ready(function() {
 
 	$('#messagingForm').submit(function() {
 		var message = $('#message').val();
+		$('#chatWindow').append('<p><b>' + username + ':</b> '+ message + '</p>');
 		$('#message').val('');
 		socket.emit('message', message);
 		return false;
 	});
 
 	socket.on('message', function(data) {
-		$('table').append('<tr><td><b>' + data.username + ':</b> '+ data.message + '</td></tr>');
+		$('#chatWindow').append('<p><b>' + data.username + ':</b> '+ data.message + '</p>');
 		var objDiv = document.getElementById("chatWindow");
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});	
