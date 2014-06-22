@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 	var socket = io.connect('/socket');
 
-	$('#title').text("Welcome to " + chatroom);
+	$('#title').text("Welcome to " + chatroom + " chatroom!");
 	$('.modal').modal('show');
 
 	$('#register').submit(function(){
@@ -13,8 +13,8 @@ $(document).ready(function() {
 		socket.emit('join', {
 			"username" : username,
 			"chatroom" : chatroom});
-		$('.modal').modal('hide');
-		return false;
+			$('.modal').modal('hide');
+			return false;
 	});
 
 	$('#messagingForm').submit(function() {
@@ -22,6 +22,8 @@ $(document).ready(function() {
 		$('#chatWindow').append('<p><b>' + username + ':</b> '+ message + '</p>');
 		$('#message').val('');
 		socket.emit('message', message);
+		var objDiv = document.getElementById("chatWindow");
+		objDiv.scrollTop = objDiv.scrollHeight;
 		return false;
 	});
 
@@ -33,7 +35,5 @@ $(document).ready(function() {
 
 	socket.on('chatroomVisitors', function(total) {
 		$('#chatroomVisitors').text("Total people in this chatroom: " + total);
-		var objDiv = document.getElementById("chatWindow");
-		objDiv.scrollTop = objDiv.scrollHeight;
 	});
 });

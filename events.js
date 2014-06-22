@@ -28,12 +28,12 @@ module.exports = function(app, io) {
 
     socket.on('disconnect', function() {
       if (socket.hasOwnProperty('chatroom')) {
-       chatroomVisitors[socket.chatroom]--;
-       gouramiChat.in(socket.chatroom).emit('chatroomVisitors', chatroomVisitors[socket.chatroom]);
-     }
-     totalVisitors = totalVisitors === undefined ? 1 : totalVisitors - 1;
-     gouramiChat.emit('totalVisitors', totalVisitors);
-   });
+        chatroomVisitors[socket.chatroom]--;
+        gouramiChat.in(socket.chatroom).emit('chatroomVisitors', chatroomVisitors[socket.chatroom]);
+      }
+      totalVisitors = totalVisitors === undefined ? 1 : totalVisitors - 1;
+      gouramiChat.emit('totalVisitors', totalVisitors);
+    });
 
   });
 };
