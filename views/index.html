@@ -29,17 +29,29 @@
 				<div class="inner cover">
 					<h1 class="cover-heading">Create your own chatroom.</h1>
 					<div class="lead">
-						<form id="create">
-							<input type="text" id="createField" placeholder="Choose a name" class="input-lg" required/>
-							<input type="submit" value="Create" class="btn btn-lg btn-default"/>
-						</form>
+						<center>
+							<form id="create">
+								<div class="input-group input-size">
+									<input type="text" id="createField" placeholder="Choose a name" class="form-control" required/>
+									<span class="input-group-btn">
+										<input type="submit" value="Create" class="btn btn-default bolded"/>
+									</span>
+								</div>
+							</form>
+						</center>
 					</div>
 					<div class="lead">
 						<h3 class="cover-heading">Join an existing one.</h3>
-						<form id="join">
-							<input type="text" id="joinField" placeholder="Enter a name" class="input-lg" required/>
-							<input type="submit" value="Join" class="btn btn-lg btn-default"/>
-						</form>
+						<center>
+							<form id="join">
+								<div class="input-group input-size">
+									<input type="text" id="joinField" placeholder="Enter a name" class="input-default form-control" required/>
+									<span class="input-group-btn">
+										<input type="submit" value="&nbsp;&nbsp;Join&nbsp;&nbsp;" class="btn btn-default bolded"/>
+									</span>
+								</div>
+							</form>
+						</center>
 					</div>
 					<div class="lead">
 						<p id="totalVisitors" class="cover-heading"></p>

@@ -163,3 +163,11 @@ body {
 .cover-heading {
   color: #fff;
 }
+
+.bolded {
+  font-weight: bold;
+}
+
+.input-size {
+  max-width : 300px;
+}

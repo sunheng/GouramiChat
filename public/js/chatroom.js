@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 	$('#messagingForm').submit(function() {
 		var message = $('#message').val();
-		$('#chatWindow').append('<p><b>' + username + ':</b> '+ message + '</p>');
+		$('#chatWindow').append('<p><b>' + username + ':</b> '+ escapeHtml(message) + '</p>');
 		$('#message').val('');
 		socket.emit('message', message);
 		var objDiv = document.getElementById("chatWindow");
@@ -28,7 +28,8 @@ $(document).ready(function() {
 	});
 
 	socket.on('message', function(data) {
-		$('#chatWindow').append('<p><b>' + data.username + ':</b> '+ data.message + '</p>');
+		$('#chatWindow').append('<p><b>' + data.username + ':</b> '+ escapeHtml(data.message) + '</p>');
+
 		var objDiv = document.getElementById("chatWindow");
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});
@@ -37,3 +38,9 @@ $(document).ready(function() {
 		$('#chatroomVisitors').text("Total people in this chatroom: " + total);
 	});
 });
+
+function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+}
