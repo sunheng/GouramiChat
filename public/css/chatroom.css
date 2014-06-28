@@ -1,19 +1,19 @@
 .chatWrapper{
-	position : relative;
-	height : 400px;
+	position: relative;
+	height: 400px;
 
 }
 #messageForm {
-	position : relative;
-	bottom : 4px;
+	position: relative;
+	bottom: 4px;
 }
 
 #chatWindow {
-	height : 350px;
-	overflow : scroll;
-	overflow-x : hidden;
-	text-align : left;
-	background-color : white;
+	height: 350px;
+	overflow: scroll;
+	overflow-x: hidden;
+	text-align: left;
+	background-color: white;
   border-top-left-radius: 6px;
 	padding: 6px;
 }
@@ -23,5 +23,5 @@
 }
 
 .outsideText {
-	color : #fff;
+	color: #fff;
 }
