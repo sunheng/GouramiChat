@@ -22,7 +22,7 @@
 						<h3 class="masthead-brand">GouramiChat</h3>
 						<ul class="nav masthead-nav">
 							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#">Rooms</a></li>
+							<!-- <li><a href="#">Rooms</a></li> -->
 						</ul>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 						<center>
 							<form id="create">
 								<div class="input-group input-size">
-									<input type="text" id="createField" placeholder="Choose a name" class="form-control" required/>
+										<input type="text" id="createField" placeholder="Enter a name" class="form-control" title="Only alphanumeric characters are allowed (no space)." pattern="[a-zA-Z0-9]+" required/>
 									<span class="input-group-btn">
 										<input type="submit" value="Create" class="btn btn-default bolded"/>
 									</span>
@@ -45,7 +45,7 @@
 						<center>
 							<form id="join">
 								<div class="input-group input-size">
-									<input type="text" id="joinField" placeholder="Enter a name" class="input-default form-control" required/>
+									<input type="text" id="joinField" placeholder="Choose a room" class="input-default form-control" title="Only alphanumeric characters are allowed (no space)." pattern="[a-zA-Z0-9]+" required/>
 									<span class="input-group-btn">
 										<input type="submit" value="&nbsp;&nbsp;Join&nbsp;&nbsp;" class="btn btn-default bolded"/>
 									</span>
