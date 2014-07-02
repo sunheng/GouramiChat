@@ -18,6 +18,11 @@
 	padding: 6px;
 }
 
+.dialog {
+	height: 300px;
+	border: 1px solid red;
+}
+
 .insideText {
 	text-shadow: 0 0 1px rgba(0,0,0,.5);
 }
