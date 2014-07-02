@@ -10,17 +10,22 @@
 
 #chatWindow {
 	height: 350px;
-	overflow: scroll;
-	overflow-x: hidden;
-	text-align: left;
 	background-color: white;
   border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 	padding: 6px;
+	text-align: left;
 }
 
 .dialog {
-	height: 300px;
-	border: 1px solid red;
+	height: 320px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.typing {
+	position: relative;
+	top: 0px;
 }
 
 .insideText {
@@ -29,4 +34,16 @@
 
 .outsideText {
 	color: #fff;
+}
+
+.smallText {
+	font-size: 12px;
+}
+
+.positiveAlert {
+	color: green;
+}
+
+.negativeAlert {
+	color: red;
 }

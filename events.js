@@ -19,6 +19,7 @@ module.exports = function(app, io) {
       gc.chatroomVisitors[socket.chatroom] = gc.chatroomVisitors.hasOwnProperty(socket.chatroom) ? gc.chatroomVisitors[socket.chatroom] + 1 : 1;
       emitToAll('totalVisitors', gc.totalVisitors);
       emitToRoom(socket.chatroom, 'chatroomVisitors', gc.chatroomVisitors[socket.chatroom]);
+      broadcastToRoom(socket.chatroom, 'connectedToRoom', socket.username);
     });
 
     socket.on('message', function(msg) {
@@ -35,6 +36,7 @@ module.exports = function(app, io) {
       }
       gc.totalVisitors--;
       emitToAll('totalVisitors', gc.totalVisitors);
+      broadcastToRoom(socket.chatroom, 'disconnectedFromRoom', socket.username);
     });
 
 

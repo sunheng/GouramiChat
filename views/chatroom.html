@@ -25,7 +25,7 @@
 				<form id="register">
 					<div class="modal-body">
 						<h4>Create a username</h4>
-						<input type="text" id="username" class="input-default" autocomplete="off" placeholder="Username" required/>
+						<input type="text" id="username" class="input-default" autocomplete="off" placeholder="Username" title="Only alphanumeric characters are allowed." pattern="[a-zA-Z0-9 ]+"required/>
 					</div>
 					<div class="modal-footer">
 						<button type="submit" id="enter" class="btn btn-primary">Enter room</button>
@@ -52,8 +52,9 @@
 					<div class="lead">
 						<div class="chatWrapper">
 							<!-- Chat Window -->
-							<div id="chatWindow" class="insideText">
-								<div class="dialog"></div> 
+							<div id="chatWindow">
+								<div class="dialog insideText"> </div>
+								<div class="typing smallText positiveAlert">BLAH BLAH IS TYPING</div>
 							</div>
 							<!-- Message form -->
 							<form id="messagingForm">

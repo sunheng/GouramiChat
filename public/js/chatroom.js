@@ -16,25 +16,37 @@ $(document).ready(function() {
 			"chatroom": chatroom
 		});
 		$('.modal').modal('hide');
+		$('.dialog').append('<b><p class="positiveAlert">' + username + ' is connected.</p></b>');
+		scrollDown($('.dialog'));
 		return false;
 	});
 
 	$('#messagingForm').submit(function() {
 		var message = $('#message').val();
-		$('#chatWindow').append('<p><b>' + username + ':</b> '+ escapeHtml(message) + '</p>');
+		$('.dialog').append('<p><b>' + username + ':</b> '+ escapeHtml(message) + '</p>');
 		$('#message').val('');
 		socket.emit('message', message);
-		scrollDown(document.getElementById('chatWindow'));
+		scrollDown($('.dialog'));
 		return false;
 	});
 
 	socket.on('message', function(data) {
-		$('#chatWindow').append('<p><b>' + data.username + ':</b> '+ escapeHtml(data.message) + '</p>');
-		scrollDown(document.getElementById('chatWindow'));
+		$('.dialog').append('<p><b>' + data.username + ':</b> '+ escapeHtml(data.message) + '</p>');
+		scrollDown($('.dialog'));
 	});
 
 	socket.on('chatroomVisitors', function(total) {
 		$('#chatroomVisitors').text('Total people in this chatroom: ' + total);
+	});
+
+	socket.on('connectedToRoom', function (username) {
+		$('.dialog').append('<b><p class="positiveAlert">' + username + ' is connected.</p></b>');
+		scrollDown($('.dialog'));
+	});
+
+	socket.on('disconnectedFromRoom', function (username) {
+		$('.dialog').append('<b><p class="negativeAlert">' + username + ' has disconnected.</p></b>');
+		scrollDown($('.dialog'));
 	});
 
 });
@@ -45,6 +57,6 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function scrollDown(obj) {
-	obj.scrollTop = obj.scrollHeight;
+function scrollDown($obj) {
+	$obj[0].scrollTop = $obj[0].scrollHeight;
 }
