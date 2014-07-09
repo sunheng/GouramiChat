@@ -16,7 +16,7 @@ $(document).ready(function() {
 			"chatroom": chatroom
 		});
 		$('.modal').modal('hide');
-		$('.dialog').append('<b><p class="positiveAlert">' + username + ' is connected.</p></b>');
+		$('.dialog').append('<b><p class="positiveAlert">' + username + ' has connected.</p></b>');
 		scrollDown($('.dialog'));
 		return false;
 	});
@@ -40,7 +40,7 @@ $(document).ready(function() {
 	});
 
 	socket.on('connectedToRoom', function (username) {
-		$('.dialog').append('<b><p class="positiveAlert">' + username + ' is connected.</p></b>');
+		$('.dialog').append('<b><p class="positiveAlert">' + username + ' has connected.</p></b>');
 		scrollDown($('.dialog'));
 	});
 

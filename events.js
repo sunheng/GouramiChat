@@ -33,10 +33,10 @@ module.exports = function(app, io) {
       if (socket.hasOwnProperty('chatroom')) {
         gc.chatroomVisitors[socket.chatroom]--;
         emitToRoom(socket.chatroom, 'chatroomVisitors', gc.chatroomVisitors[socket.chatroom]);
+        broadcastToRoom(socket.chatroom, 'disconnectedFromRoom', socket.username);
       }
       gc.totalVisitors--;
       emitToAll('totalVisitors', gc.totalVisitors);
-      broadcastToRoom(socket.chatroom, 'disconnectedFromRoom', socket.username);
     });
 
 
